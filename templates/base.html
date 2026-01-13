@@ -3,7 +3,16 @@
   <head>
     <title>Mini Public Bike Status</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Application pour consulter le statut des stations de vélos en libre-service">
+    <meta name="theme-color" content="#000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Mini PBS">
+    
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"> 
 
     <style>
       * {
@@ -217,7 +226,7 @@
 
   <body>
     <div class="base-icon-template">
-      <svg id="base_bike_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 76" width="100" height="76"><path d="M80.344 37.212c-.424 0-.838.037-1.254.063L71.404 4.444a2.769 2.769 0 0 0-2.024-2.057L60.514.17 59.17 5.548l7.226 1.806 2.585 11.043-.098-.07-21.552 29.984a7.657 7.657 0 0 0-.787.072v-.089l-.747.093-10.304-25.759 8.835-2.039v-4.433H18.839a7.757 7.757 0 0 0 7.758 7.758h3.443l10.073 25.185-2.711.339c-2.853-7.158-9.833-12.225-18.009-12.225C8.683 37.213 0 45.9 0 56.607 0 67.314 8.684 76 19.393 76c8.573 0 15.834-5.57 18.397-13.284l8.754 1.094v-.089c.363.053.732.089 1.108.089a7.759 7.759 0 0 0 7.758-7.758 7.721 7.721 0 0 0-1.163-4.07L71.291 28.27l2.376 10.15c-7.416 2.724-12.716 9.828-12.716 18.186C60.95 67.313 69.635 76 80.344 76c10.71 0 19.394-8.686 19.394-19.394 0-10.707-8.684-19.393-19.394-19.393zm-60.95 33.246c-7.64 0-13.853-6.214-13.853-13.853 0-7.638 6.214-13.852 13.852-13.852 5.31 0 9.927 3.007 12.25 7.404l-11.695 1.462a4.433 4.433 0 0 0 0 8.865l12.2 1.525c-2.11 4.96-7.032 8.449-12.755 8.449zm60.95 0c-7.639 0-13.852-6.214-13.852-13.853 0-5.721 3.486-10.643 8.446-12.753l3.263 13.938 5.394-1.262-3.223-13.775c7.625.018 13.825 6.224 13.825 13.852 0 7.638-6.214 13.853-13.853 13.853z"/><path d="M97.521 6.183H76.466l4.432 18.839h12.19z"/></svg>
+      <svg id="base_bike_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 76" width="100" height="76"><path d="M80.344 37.212c-.424 0-.838.037-1.254.063L71.404 4.444a2.769 2.769 0 0 0-2.024-2.057L60.514.17 59.17 5.548l7.226 1.806 2.585 11.043-.098-.07-21.552 29.984a7.657 7.657 0 0 0-.787.072v-.089l-.747.093-10.304-25.759 8.835-2.039v-4.433H18.839a7.757 7.757 0 0 0 7.758 7.758h3.443l10.073 25.185-2.711.339c-2.853-7.158-9.833-12.225-18.009-12.225C8.683 37.213 0 45.9 0 56.607 0 67.314 8.684 76 19.393 76c8.573 0 15.834-5.57 18.397-13.284l8.754 1.094v-.089c.363.053.732.089 1.108.089a7.759 7.759 0 0 0 7.758-7.758 7.721 7.721 0 0 0-1.163-4.07L71.291 28.27l2.376 10.15c-7.416 2.724-12.716 9.828-12.716 18.186C60.95 67.313 69.635 76 80.344 76c10.71 0 19.394-8.686 19.394-19.394 0-10.707-8.684-19.393-19.394-19.393zm-60.95 33.246c-7.64 0-13.853-6.214-13.853-13.853 0-7.638 6.214-13.852 13.852-13.852 5.31 0 9.927 3.007 12.25 7.404l-11.695 1.462a4.433 4.433 0 0 0 0 8.865l12.2 1.525c-2.11 4.96-7.032 8.449-12.755 8.449zm60.95 0c-7.639 0-13.852-6.214-13.852-13.853 0-5.721 3.486-10.643 8.446-12.753l3.263 13.938 5.394-1.262-3.223-13.775c7.625.018 13.825 6.224 13.825 13.852 0 7.638-6.214 13.853-13.853 13.853z"/></svg>
       <svg id="base_star_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="100"><path d="M 512,198.523 335.108,172.82 256,12.529 176.892,172.821 0,198.525 128.002,323.294 97.786,499.471 256.001,416.291 414.216,499.471 384,323.293 Z"/></svg>
     </div>
 
@@ -228,5 +237,20 @@
       <p>Data from <a href="https://api.citybik.es/v2/" target="_blank">CityBikes API</a>. Icon "bike sharing" by Tomas Knopp from <a href="https://thenounproject.com/search/?q=city%20bike&i=1773520" target="_blank">the Noun Project</a>.</p>
       <p>Hosted in Europe 🇪🇺</p>
     </footer>
+
+    <script>
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered successfully:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
  </body>
 </html>
