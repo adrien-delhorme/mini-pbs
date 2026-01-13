@@ -8,6 +8,7 @@ from flask import render_template
 from flask import request, redirect
 from flask import send_from_directory
 from flask import abort
+from flask import Response
 
 app = Flask(__name__)
 
@@ -69,4 +70,19 @@ def service_worker():
     This is the standard practice for PWAs.
     """
     return send_from_directory("static", "sw.js", mimetype="application/javascript")
+
+@app.route("/manifest.json")
+def manifest():
+    """Route to serve a dynamic manifest.json with the current URL as start_url
+    
+    This allows the PWA to open on the current page when installed from the home screen,
+    rather than always opening on the root page (/).
+    """
+    # Get start_url from query parameter (path + GET parameters)
+    start_url = request.args.get("start_url") or "/"
+
+    return Response(
+        render_template("manifest.json", start_url=start_url),
+        mimetype="application/manifest+json"
+    )
 

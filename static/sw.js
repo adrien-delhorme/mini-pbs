@@ -2,7 +2,7 @@
 const CACHE_NAME = 'mini-pbs-v1';
 const urlsToCache = [
   '/',
-  '/static/manifest.json'
+  '/manifest.json'
 ];
 
 // Service worker installation

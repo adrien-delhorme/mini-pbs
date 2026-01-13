@@ -4,13 +4,13 @@
     <title>Mini Public Bike Status</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Application pour consulter le statut des stations de vélos en libre-service">
+    <meta name="description" content="App to check the status of public bike stations">
     <meta name="theme-color" content="#000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Mini PBS">
     
-    <link rel="manifest" href="/static/manifest.json">
+    <link rel="manifest" href="/manifest.json?start_url={{ request.full_path | urlencode }}">
     <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico"> 
 

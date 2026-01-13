@@ -2,7 +2,7 @@
   "name": "Mini Public Bike Status",
   "short_name": "Mini PBS",
   "description": "App to check the status of bike-sharing stations",
-  "start_url": "/",
+  "start_url": {{ start_url | tojson }},
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#000",
